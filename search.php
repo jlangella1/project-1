@@ -28,7 +28,7 @@ if (isset($_POST['booking_day'])) {
     $query = "SELECT * from booking where booking_day LIKE '  ".$days."  ' ";	
     mysqli_query($mysqli, $query); 
     //take the result of the query and pass to a var, then pass to table on html page
-
+    //work to do
 }
 
 // Close the connection
