@@ -4,80 +4,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Booking</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="booking.css">
     <link rel="stylesheet" href="path/to/icon-library.css">
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
-        <ul>
-            <li><a href="index.html" data-tooltip="Home"><img src="home.png" alt="Home Icon"></a></li>
-            <li><a href="menu.html" data-tooltip="Menu"><img src="menu.png" alt="Menu Icon"></a></li>
-            <li><a href="booking.html" data-tooltip="Booking"><img src="booking.png" alt="Booking Icon"></a></li>
-            <li><a href="online.html" data-tooltip="Online Order"><img src="online-order.png" alt="Online Order Icon"></a></li>
-            <li><a href="contact.html" data-tooltip="Contact"><img src="contact.png" alt="Contact Icon"></a></li>
-        </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Sidebar content goes here -->
+                <div class="sidebar" id="sidebar">
+                    <ul>
+                        <li><a href="index.html" data-tooltip="Home"><img src="home.png" alt="Home Icon"></a></li>
+                        <li><a href="menu.html" data-tooltip="Menu"><img src="menu.png" alt="Menu Icon"></a></li>
+                        <li><a href="booking.html" data-tooltip="Booking"><img src="booking.png" alt="Booking Icon"></a></li>
+                        <li><a href="online.html" data-tooltip="Online Order"><img src="online-order.png" alt="Online Order Icon"></a></li>
+                        <li><a href="contact.html" data-tooltip="Contact"><img src="contact.png" alt="Contact Icon"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- Booking form section -->
+                <section class="banner mt-3">
+                    <h2>BOOK YOUR TABLE NOW</h2>
+
+                    <div class="card-content mt-3">
+                        <form action="booking.php" method="post">
+                            <div class="form-group">
+                                <label for="booking_day">Select Date</label>
+                                <select class="form-control" id="booking_day" name="booking_day">
+                                    <option value="day-select">Select Date</option>
+                                    <option value="wed">Wednesday</option>
+                                    <option value="thur">Thursday</option>
+                                    <option value="fri">Friday</option>
+                                    <option value="sat">Saturday</option>
+                                    <option value="sun">Sunday</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="booking_time">Select Hour</label>
+                                <select class="form-control" id="booking_time" name="booking_time">
+                                    <option value="hour-select">Select Hour</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:15">15:15</option>
+                                    <!-- Add other options here -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="booking_name">Full Name</label>
+                                <input type="text" class="form-control" id="booking_name" name="booking_name" placeholder="Full Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="booking_pnumber">How Many Persons?</label>
+                                <input type="number" class="form-control" id="booking_pnumber" name="booking_pnumber" placeholder="How Many Persons?" min="1">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">BOOK TABLE</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
 
-    <section class="banner">
-        <h2>BOOK YOUR TABLE NOW</h2>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <div class="card-content">
-            <form action="booking.php" method="post">
-                <div class="form-row">
-                    <select name="booking_day">
-                        <option value="day-select">Select Date</option>
-                        <option value="wed">Wednesday</option>
-                        <option value="thur">Thursday</option>
-                        <option value="fri">Friday</option>
-                        <option value="sat">Saturday</option>
-                        <option value="sun">Sunday</option>
-                    </select>
-
-                    <select name="booking_time">
-                        <option value="hour-select">Select Hour</option>
-                        <option value="15:00">15:00</option>
-                        <option value="15:15">15:15</option>
-                        <option value="15:30">15:30</option>
-                        <option value="15:45">15:45</option>
-                        <option value="16:00">16:00</option>
-                        <option value="16:15">16:15</option>
-                        <option value="16:30">16:30</option>
-                        <option value="16:45">16:45</option>
-                        <option value="17:00">17:00</option>
-                        <option value="17:15">17:15</option>
-                        <option value="17:30">17:30</option>
-                        <option value="17:45">17:45</option>
-                        <option value="18:00">18:00</option>
-                        <option value="18:15">18:15</option>
-                        <option value="18:30">18:30</option>
-                        <option value="18:45">18:45</option>
-                        <option value="19:00">19:00</option>
-                        <option value="19:15">19:15</option>
-                        <option value="19:30">19:30</option>
-                        <option value="19:45">19:45</option>
-                        <option value="20:00">20:00</option>
-                        <option value="20:15">20:15</option>
-                        <option value="20:30">20:30</option>
-                        <option value="20:45">20:45</option>
-                        <option value="21:00">21:00</option>
-                        <option value="21:15">21:15</option>
-                        <option value="21:30">21:30</option>
-                    </select>
-                </div>
-
-                <div class="form-row">
-                    <input type="text" name="booking_name" placeholder="Full Name">
-                   
-                </div>
-
-                <div class="form-row">
-                    <input type="number" name="booking_pnumber" placeholder="How Many Persons?" min="1">
-                    <input type="submit" value="BOOK TABLE">
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
+    <script>
+        // Check if the booking confirmation session variable exists and is true
+        const bookingConfirmed = localStorage.getItem('booking_confirmation');
+        if (bookingConfirmed === 'true') {
+            // Display the confirmation message
+            alert("Your Booking is Confirmed");
+            // Clear the local storage variable to prevent showing the message again on refresh
+            localStorage.removeItem('booking_confirmation');
+        }
+    </script>
 </body>
 </html>
