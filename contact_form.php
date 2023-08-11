@@ -15,15 +15,14 @@ if ($mysqli->connect_error) {
     $dbflag = true;
 }
 
-if (isset($_POST['booking_day'], $_POST["booking_time"], $_POST['booking_name'],  $_POST['booking_pnumber'])) 
+if (isset($_POST['contact_name'], $_POST["contact_email"], $_POST['contact_message'])) 
     // Getting content from HTML form and saving to PHP variables
-    $days = htmlspecialchars($_POST["booking_day"]);
-    $hours = htmlspecialchars($_POST["booking_time"]);
-    $booking_name = htmlspecialchars($_POST["booking_name"]);
-    $booking_pnumber = htmlspecialchars($_POST["booking_pnumber"]);
+    $bname = htmlspecialchars($_POST["contact_name"]);
+    $bemail = htmlspecialchars($_POST["contact_email"]);
+    $bmessage = htmlspecialchars($_POST["contact_message"]);
     
     // Inserting data into the database
-    $query = "INSERT INTO booking (booking_day, booking_time, booking_name, booking_pnumber) VALUES ('$days', '$hours', '$booking_name', '$booking_pnumber')";
+    $query = "INSERT INTO contact (bname, bemail, bmessage) VALUES ('$bname', '$bemail', '$bmessage')";
     if (mysqli_query($mysqli, $query)) {
         // Success! Booking inserted into the database
 
@@ -31,7 +30,7 @@ if (isset($_POST['booking_day'], $_POST["booking_time"], $_POST['booking_name'],
         session_start();
         $_SESSION['booking_confirmation'] = true;
 
-        // Redirect back to index.html
+        // Redirect back to contact.html
         header('Location: index.html');
         exit;
 

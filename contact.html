@@ -3,21 +3,64 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>Contact</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css"> <!-- Add your custom contact page CSS here -->
 </head>
 <body>
-    <div class="navbar" id="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="online.html">Online Order</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar">
+                    <ul>
+                        <li><a href="index.html" data-tooltip="Home"><img src="home.png" alt="Home Icon"></a></li>
+                        <li><a href="menu.html" data-tooltip="Menu"><img src="menu.png" alt="Menu Icon"></a></li>
+                        <li><a href="booking.html" data-tooltip="Booking"><img src="booking.png" alt="Booking Icon"></a></li>
+                        <li><a href="contact.html" data-tooltip="Contact"><img src="contact.png" alt="Contact Icon"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <section class="banner mt-3">
+                    <h2>CONTACT US</h2>
+
+                    <div class="card-content mt-3">
+                        <form action="contact_form.php" method="post">
+                            <div class="form-group">
+                                <label for="bname">Your Name</label>
+                                <input type="text" class="form-control" id="contact_name" name="contact_name" placeholder="Your Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bemail">Email Address</label>
+                                <input type="email" class="form-control" id="contact_email" name="contact_email" placeholder="Email Address">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bmessage">Message</label>
+                                <textarea class="form-control" id="contact_message" name="contact_message" rows="5" placeholder="Your Message"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
 
-
-    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Check if the booking confirmation session variable exists and is true
+        const bookingConfirmed = localStorage.getItem('booking_confirmation');
+        if (bookingConfirmed === 'true') {
+            // Display the confirmation message
+            alert("Your Booking is Confirmed");
+            // Clear the local storage variable to prevent showing the message again on refresh
+            localStorage.removeItem('booking_confirmation');
+        }
+    </script>
 </body>
 </html>
